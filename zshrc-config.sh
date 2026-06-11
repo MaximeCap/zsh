@@ -20,8 +20,3 @@ if [ -d "$XDG_CACHE_HOME/zsh" ]; then
   mkdir -p "$XDG_CACHE_HOME/zsh"
 fi
 
-if [ -f "$PWD/.zshrc" ]; then
-  mv $PWD/.zshrc .zshrc.bck
-fi
-
-ln -s $PWD/.config/zsh/.zshrc .zshrc

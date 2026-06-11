@@ -1,3 +1,5 @@
+export ZDOTDIR="$HOME/.config/zsh"
+
 # History
 
 HISTFILE="$XDG_STATE_HOME/zsh/history"
@@ -19,6 +21,8 @@ setopt NUMERIC_GLOB_SORT
 eval "$(zoxide init zsh)"
 
 # Completion
+fpath=("${XDG_DATA_HOME:-$HOME/.local/share}/zsh/completions" $fpath)
+source "$ZDOTDIR/completions.zsh"
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
@@ -63,3 +67,10 @@ source "$ZDOTDIR/plugins.zsh"
 
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
+
+if [ -f "$ZDOTDIR/.zshrc-local.zsh" ]; then
+	source "$ZDOTDIR/.zshrc-local.zsh"
+fi
+
+
+eval "$(starship init zsh)"
