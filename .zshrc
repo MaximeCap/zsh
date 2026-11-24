@@ -1,8 +1,9 @@
 export ZDOTDIR="$HOME/.config/zsh"
 
 # History
-
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
+mkdir -p "${HISTFILE:h}"
 HISTSIZE=100000
 SAVEHIST=100000
 
@@ -26,7 +27,8 @@ source "$ZDOTDIR/completions.zsh"
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
-zstyle ':completion:*' menu select
+# Let fzf-tab display the completion candidates instead of zsh's menu selector.
+zstyle ':completion:*' menu no
 
 # Case insitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -74,3 +76,8 @@ fi
 
 
 eval "$(starship init zsh)"
+# # The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# fpath=(/Users/maxcap/.docker/completions $fpath)
+# autoload -Uz compinit
+# (( ${+_comps[docker]} )) || compinit
+# # End of Docker CLI completions

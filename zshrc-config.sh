@@ -12,11 +12,11 @@ if command -v hostnamectl >/dev/null 2>&1; then
 fi
 
 # Init create directory
-if [ -d "$XDG_STATE_HOME/zsh" ]; then
+if [ ! -d "$XDG_STATE_HOME/zsh" ]; then
   mkdir -p "$XDG_STATE_HOME/zsh"
 fi
 
-if [ -d "$XDG_CACHE_HOME/zsh" ]; then
+if [ ! -d "$XDG_CACHE_HOME/zsh" ]; then
   mkdir -p "$XDG_CACHE_HOME/zsh"
 fi
 

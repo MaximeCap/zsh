@@ -1,9 +1,16 @@
+# Function
+notes() {
+  local vault=~/vaults/${1:-work}
+  nvim --cmd "cd $vault" -c 'lua Snacks.picker.files()'
+}
+
 alias zl="zoxide query -l | fzf"
 
 alias ls="eza --icons -lah --git"
 alias ll="ls"
 alias tree="eza --icons --tree"
 alias lg="lazygit"
+alias cd="z"
 
 compdef eza=ls
 
