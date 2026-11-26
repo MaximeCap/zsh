@@ -6,6 +6,9 @@ notes() {
 
 alias zl="zoxide query -l | fzf"
 
+alias k="kubectl"
+alias bb="brew bundle"
+
 alias ls="eza --icons -lah --git"
 alias ll="ls"
 alias tree="eza --icons --tree"
@@ -26,3 +29,5 @@ alias df="df -h"
 
 alias glog='PAGER="less -F -X" git log'
 alias galog='PAGER="less -F -X" git log --all --decorate --oneline --graph'
+
+source $ZDOTDIR/kubectl.aliases.zsh
